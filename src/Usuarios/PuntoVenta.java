@@ -179,7 +179,7 @@ public class PuntoVenta extends javax.swing.JInternalFrame {
             {
                Venta nuevaVenta = new Venta(id,excursion, cliente, boletos, deposito, total);
                this.objGVentas.ingresarVenta(nuevaVenta);
-                JOptionPane.showMessageDialog(null, "Se Registro Correctamente el Cliente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Se Registro Correctamente la Venta", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 limpiarCajas();
                 this.objGVentas.guardarArchivo();
             } 
