@@ -13,27 +13,27 @@ import java.io.Serializable;
  */
 public class Excursion implements Serializable{
     private int id;
-    private String nombre;
-    private String apellido;
+    private String lugar;
+    private String fecha;
     private int costo;
     private int lugares;
 
     
-    public Excursion(int id, String nombre, String apellido, int costo, int lugares) {
+    public Excursion(int id, String lugar, String fecha, int costo, int lugares) {
         this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.lugar = lugar;
+        this.fecha = fecha;
         this.costo = costo;
         this.lugares = lugares;
     }
 
 
-    public String getApellido() {
-        return apellido;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public int getId() {
@@ -52,12 +52,12 @@ public class Excursion implements Serializable{
         this.costo = costo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getLugar() {
+        return lugar;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.lugar = lugar;
     }
 
     public int getLugares() {

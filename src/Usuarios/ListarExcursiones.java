@@ -38,8 +38,8 @@ public class ListarExcursiones extends javax.swing.JInternalFrame {
         this.objGExcursion = objGExcursions;
         initComponents();
         miTabla.addColumn("id");
-        miTabla.addColumn("Nombre");
-        miTabla.addColumn("Apellido");
+        miTabla.addColumn("Lugar");
+        miTabla.addColumn("Fecha");
         miTabla.addColumn("Costo");
         miTabla.addColumn("# Lugares");
         tabEstudiantes.setModel(miTabla);
@@ -220,7 +220,7 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
            
              if(claveBusqueda.equals(objGExcursion.getExcursiones()[ind].getId())){
                  System.out.println("El usuario con el id buscado es: "+objGExcursion
-                         .getExcursiones()[ind].getNombre()+ " \n");
+                         .getExcursiones()[ind].getLugar()+ " \n");
                  noElemento=ind;
                  ind=objGExcursion.getExcursiones().length;
              }   
@@ -245,8 +245,8 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
         
          borrarDatosTabla();
          miTabla.addRow(new Object[] {objGExcursion.getExcursiones()[pos].getId(),
-               objGExcursion.getExcursiones()[pos].getNombre(),
-                objGExcursion.getExcursiones()[pos].getApellido(),
+               objGExcursion.getExcursiones()[pos].getLugar(),
+                objGExcursion.getExcursiones()[pos].getFecha(),
                 objGExcursion.getExcursiones()[pos].getCosto(),
                 objGExcursion.getExcursiones()[pos].getLugares(),
             });
@@ -257,8 +257,8 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
         int numExcursiones = objGExcursion.getNumExcursiones();
         for(int i = 0; i < numExcursiones; i++){
             miTabla.addRow(new Object[] {objGExcursion.getExcursiones()[i].getId(),
-                objGExcursion.getExcursiones()[i].getNombre(),
-                objGExcursion.getExcursiones()[i].getApellido(),
+                objGExcursion.getExcursiones()[i].getLugar(),
+                objGExcursion.getExcursiones()[i].getFecha(),
                 objGExcursion.getExcursiones()[i].getCosto(),
                 objGExcursion.getExcursiones()[i].getLugares(),
             });          
