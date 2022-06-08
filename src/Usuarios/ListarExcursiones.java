@@ -218,7 +218,7 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
           ind=0;
          while(ind<objGExcursion.getExcursiones().length){
            
-             if(objGExcursion.getExcursiones()[ind].getId().equals(claveBusqueda)){
+             if(claveBusqueda.equals(objGExcursion.getExcursiones()[ind].getId())){
                  System.out.println("El usuario con el id buscado es: "+objGExcursion
                          .getExcursiones()[ind].getNombre()+ " \n");
                  noElemento=ind;

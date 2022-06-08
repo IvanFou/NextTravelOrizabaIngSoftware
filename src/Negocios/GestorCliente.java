@@ -98,7 +98,7 @@ public class GestorCliente  implements Serializable{
         int i;
         for(i=0; i<clientes.length; i++){
                 try{
-                    String cadena = String.valueOf(clientes[i].getCedula());
+                    String cadena = String.valueOf(clientes[i].getId());
                 }
                 catch(Exception e){
                     return i;

@@ -12,16 +12,16 @@ import java.io.Serializable;
  * @author Ivan Fougerat
  */
 public class Cliente implements Serializable{
-    private String cedula;
+    private int id;
     private String nombre;
     private String apellidos;
     private String correo;
-    private String telefono;
+    private int telefono;
     
     
     
-    public Cliente(String cedula, String nombre, String apellidos, String correo, String telefono) {
-        this.cedula = cedula;
+    public Cliente(int id, String nombre, String apellidos, String correo, int telefono) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
@@ -38,12 +38,12 @@ public class Cliente implements Serializable{
         this.apellidos = apellidos;
     }
 
-    public String getCedula() {
-        return cedula;
+    public int getId() {
+        return id;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setId(int id) {
+        this.id = id;
     }
 
 
@@ -62,10 +62,10 @@ public class Cliente implements Serializable{
     public void setcorreo(String correo) {
         this.correo = correo;
     }
-     public String getTelefono() {
+     public int getTelefono() {
         return telefono;
     }
-    public void setTelefono(String materia) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
     

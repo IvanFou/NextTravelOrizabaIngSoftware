@@ -207,7 +207,7 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
           ind=0;
          while(ind<objGClientes.getCliente().length){
            
-             if(objGClientes.getCliente()[ind].getCedula().equals(claveBusqueda)){
+             if(claveBusqueda.equals(objGClientes.getCliente()[ind].getId())){
                  System.out.println("El cliente buscado es: "+ objGClientes
                          .getCliente()[ind].getNombre()+ " \n");
                  noElemento=ind;
@@ -233,7 +233,7 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
     public void llenarDatosTabla(int pos){
         
          borrarDatosTabla();
-         Tabla.addRow(new Object[] {objGClientes.getCliente()[pos].getCedula(),
+         Tabla.addRow(new Object[] {objGClientes.getCliente()[pos].getId(),
                 objGClientes.getCliente()[pos].getNombre(),
                 objGClientes.getCliente()[pos].getApellidos(),
                 objGClientes.getCliente()[pos].getcorreo(),
@@ -246,7 +246,7 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
     public void llenarDatosTabla() {
         int numVentas = objGClientes.getNumCliente();
         for(int i = 0; i < numVentas; i++){
-            Tabla.addRow(new Object[] {objGClientes.getCliente()[i].getCedula(),
+            Tabla.addRow(new Object[] {objGClientes.getCliente()[i].getId(),
                objGClientes.getCliente()[i].getNombre(),
                objGClientes.getCliente()[i].getApellidos(),
                objGClientes.getCliente()[i].getcorreo(),

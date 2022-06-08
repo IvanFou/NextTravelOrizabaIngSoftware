@@ -44,10 +44,8 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         txtCosto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtLugar = new javax.swing.JTextField();
-        txtId = new javax.swing.JTextField();
         txtDate = new javax.swing.JTextField();
         txtPasaje = new javax.swing.JTextField();
         btCancelar = new javax.swing.JButton();
@@ -103,15 +101,6 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
         gridBagConstraints.insets = new java.awt.Insets(21, 37, 0, 0);
         jPanel2.add(jLabel2, gridBagConstraints);
 
-        jLabel5.setText("ID");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 37, 0, 0);
-        jPanel2.add(jLabel5, gridBagConstraints);
-
         jLabel6.setText("Lugares");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -129,15 +118,6 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 44);
         jPanel2.add(txtLugar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 126;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 18, 0, 44);
-        jPanel2.add(txtId, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -199,12 +179,12 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAceptar)
                     .addComponent(btCancelar))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -223,14 +203,14 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
     private void btAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceptarActionPerformed
 
         try {
-            String id = txtId.getText();
+            int id = objGExcursion.getNumExcursiones();
             String nombre = txtLugar.getText();
             String apellido = txtDate.getText();
             int costo = Integer.parseInt(txtCosto.getText());
             int lugares = Integer.parseInt(txtPasaje.getText());
  
 
-            if(txtId.getText().trim().isEmpty()|| txtLugar.getText().trim().isEmpty() || txtDate.getText().trim().isEmpty() 
+            if(txtLugar.getText().trim().isEmpty() || txtDate.getText().trim().isEmpty() 
                     || txtCosto.getText().trim().isEmpty() || txtPasaje.getText().trim().isEmpty()  ) 
             {
                 JOptionPane.showMessageDialog(null, "Hey todavia falta campos por llenar", "Mensaje", JOptionPane.ERROR_MESSAGE);
@@ -241,7 +221,6 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
                         this.objGExcursion.ingresarExcursion(nuevoExcursion);
                         JOptionPane.showMessageDialog(null, "Se Registro Correctamente Joven", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                         limpiarCajas();   
-                     txtId.requestFocus();
                       this.objGExcursion.guardarArchivo();
             }
             
@@ -252,7 +231,6 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btAceptarActionPerformed
 
      private void limpiarCajas(){
-           txtId.setText("");
            txtLugar.setText("");
            txtDate.setText("");
            txtCosto.setText("");
@@ -267,12 +245,10 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtCosto;
     private javax.swing.JTextField txtDate;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLugar;
     private javax.swing.JTextField txtPasaje;
     // End of variables declaration//GEN-END:variables

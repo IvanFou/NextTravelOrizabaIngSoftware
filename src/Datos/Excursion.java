@@ -12,14 +12,14 @@ import java.io.Serializable;
  * @author Ivan Fougerat
  */
 public class Excursion implements Serializable{
-    private String id;
+    private int id;
     private String nombre;
     private String apellido;
     private int costo;
     private int lugares;
 
     
-    public Excursion(String id, String nombre, String apellido, int costo, int lugares) {
+    public Excursion(int id, String nombre, String apellido, int costo, int lugares) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -36,11 +36,11 @@ public class Excursion implements Serializable{
         this.apellido = apellido;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
