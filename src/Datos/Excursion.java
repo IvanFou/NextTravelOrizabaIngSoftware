@@ -14,26 +14,26 @@ import java.io.Serializable;
 public class Excursion implements Serializable{
     private int id;
     private String lugar;
-    private String fecha;
+    private String date;
     private int costo;
     private int lugares;
 
     
-    public Excursion(int id, String lugar, String fecha, int costo, int lugares) {
+    public Excursion(int id, String lugar, String date, int costo, int lugares) {
         this.id = id;
         this.lugar = lugar;
-        this.fecha = fecha;
+        this.date = date;
         this.costo = costo;
         this.lugares = lugares;
     }
 
 
     public String getFecha() {
-        return fecha;
+        return date;
     }
 
     public void setFecha(String fecha) {
-        this.fecha = fecha;
+        this.date = fecha;
     }
 
     public int getId() {

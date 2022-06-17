@@ -15,6 +15,8 @@ import Usuarios.PuntoVenta;
 import Negocios.GestorVenta;
 import Usuarios.ListarVentas;
 
+import Datos.Conexion;
+
 /**
  *
  * @author Ivan Fougerat
@@ -23,6 +25,8 @@ public class Principal extends javax.swing.JFrame {
     private GestorExcursion objGExcursion;
      private GestorCliente objGCliente;
      private GestorVenta objGVentas;
+     Conexion conn = new Conexion();
+
      
     /**
      * Creates new form Principal
@@ -35,7 +39,7 @@ public class Principal extends javax.swing.JFrame {
         objGExcursion.ReadFile();
         objGVentas = new GestorVenta();
         objGVentas.ReadFiles();
-        
+        conn.conectar();
     }
 
     /**

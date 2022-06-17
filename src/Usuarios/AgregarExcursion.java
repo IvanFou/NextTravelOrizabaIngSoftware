@@ -8,6 +8,7 @@ package Usuarios;
 import Datos.Excursion;
 import Negocios.GestorExcursion;
 import javax.swing.JOptionPane;
+import Datos.CRUD;
 
 /**
  *
@@ -21,6 +22,7 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
     
     float promedio = 1;
     private GestorExcursion objGExcursion;
+     CRUD objGCRUD = new CRUD();
     
        
     public AgregarExcursion(GestorExcursion objGExcursion) {
@@ -204,8 +206,8 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
 
         try {
             int id = objGExcursion.getNumExcursiones();
-            String nombre = txtLugar.getText();
-            String apellido = txtDate.getText();
+            String lugar = txtLugar.getText();
+            String date = txtDate.getText();
             int costo = Integer.parseInt(txtCosto.getText());
             int lugares = Integer.parseInt(txtPasaje.getText());
  
@@ -217,9 +219,10 @@ public class AgregarExcursion extends javax.swing.JInternalFrame {
             }
             else
             {
-                     Excursion nuevoExcursion = new Excursion(id, nombre, apellido,costo, lugares);
+                     Excursion nuevoExcursion = new Excursion(id, lugar, date,costo, lugares);
+                        objGCRUD.guardarExcursion(objGExcursion.getNumExcursiones(),txtLugar.getText(), txtDate.getText(),Integer.parseInt(txtCosto.getText()),Integer.parseInt(txtPasaje.getText()));
                         this.objGExcursion.ingresarExcursion(nuevoExcursion);
-                        JOptionPane.showMessageDialog(null, "Se Registro Correctamente Joven", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Se Registro Correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                         limpiarCajas();   
                       this.objGExcursion.guardarArchivo();
             }

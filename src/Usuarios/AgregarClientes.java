@@ -8,6 +8,7 @@ package Usuarios;
 import Negocios.GestorCliente;
 import Datos.Cliente;
 import javax.swing.JOptionPane;
+import Datos.CRUD;
 /**
  *
  * @author Ivan Fougerat
@@ -19,6 +20,7 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
      * Creates new form AgregarClientes
      */
      private GestorCliente objGCliente;
+     CRUD objGCRUD = new CRUD();
      
     public AgregarClientes(GestorCliente objGCliente) {
         initComponents();
@@ -158,7 +160,7 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
         try{
             int id = objGCliente.getNumCliente();
             String nombre = txtNombre.getText();
@@ -168,24 +170,22 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
             
             
             if(txtNombre.getText().trim().isEmpty() || txtApellidos.getText().trim().isEmpty() 
-                    || txtTelefono.getText().trim().isEmpty()|| txtCorreo.getText().trim().isEmpty() || telefono<0000000000
-                     ) 
+                    || txtTelefono.getText().trim().isEmpty()|| txtCorreo.getText().trim().isEmpty()|| txtTelefono.getText().trim().isEmpty()) 
             {
                 JOptionPane.showMessageDialog(null, "Hey todavia falta campos por llenar", "Mensaje", JOptionPane.ERROR_MESSAGE);
             }
             else
             {
                  Cliente nuevoCliente = new Cliente(id, nombre, apellido,correo, telefono);
-                        this.objGCliente.ingresarCliente(nuevoCliente);
-                        JOptionPane.showMessageDialog(null, "Se Registro Correctamente el Cliente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                        this.objGCRUD.guardarCliente(id, nombre, apellido, correo, telefono);
+                        this.objGCliente.ingresarCliente(nuevoCliente);                        
                         limpiarCajas();  
                       this.objGCliente.guardarArchivo();
             }
         }
-        catch (NumberFormatException e)
-           {
-            JOptionPane.showMessageDialog(null, "Te faltan campos por llenar", "Mensaje", JOptionPane.ERROR_MESSAGE);
-           }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
       
     }//GEN-LAST:event_jButton1ActionPerformed
 

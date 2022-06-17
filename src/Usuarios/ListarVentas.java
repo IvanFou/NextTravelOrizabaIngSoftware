@@ -2,6 +2,7 @@
 package Usuarios;
 
 
+import Datos.CRUD;
 import Negocios.GestorCliente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +15,8 @@ import Negocios.GestorVenta;
 public class ListarVentas extends javax.swing.JInternalFrame {
 
      private GestorVenta objGVentas;
+     CRUD objGCRUD = new CRUD();
+     
      int posicion;
      String pos = null;
      int ind;
@@ -194,6 +197,7 @@ public class ListarVentas extends javax.swing.JInternalFrame {
         int fila = tabMaestro.getSelectedRow();
         if(fila>=0)
         {
+            objGCRUD.eliminarVentas(fila);
             objGVentas.borrardato(fila);
             borrarDatosTabla(); 
             llenarDatosTablas();

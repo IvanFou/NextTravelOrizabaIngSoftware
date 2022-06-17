@@ -5,6 +5,7 @@
  */
 package Usuarios;
 
+import Datos.CRUD;
 import Negocios.GestorCliente;
 import Negocios.GestorExcursion;
 import javax.swing.JOptionPane;
@@ -17,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 public class ListarExcursiones extends javax.swing.JInternalFrame {
 
      private GestorExcursion objGExcursion;
+     CRUD objGCRUD = new CRUD();
+     
      int posicion;
      String pos = null;
      int ind;
@@ -203,6 +206,7 @@ public class ListarExcursiones extends javax.swing.JInternalFrame {
         int fila = tabEstudiantes.getSelectedRow();
         if(fila>=0)
         {
+            objGCRUD.eliminarExcursiones(fila);
             objGExcursion.borrardato(fila);
             borrarDatosTabla();
             llenarDatosTabla();

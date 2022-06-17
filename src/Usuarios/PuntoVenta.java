@@ -5,6 +5,7 @@
  */
 package Usuarios;
 
+import Datos.CRUD;
 import Negocios.GestorCliente;
 import Negocios.GestorVenta;
 import Datos.Cliente;
@@ -22,6 +23,8 @@ public class PuntoVenta extends javax.swing.JInternalFrame {
      */
      private GestorCliente objGExcursion;
      private GestorVenta objGVentas;
+     CRUD objGCRUD = new CRUD();
+
      
     public PuntoVenta(GestorVenta objGVentas) {
         initComponents();
@@ -178,6 +181,7 @@ public class PuntoVenta extends javax.swing.JInternalFrame {
             else
             {
                Venta nuevaVenta = new Venta(id,excursion, cliente, boletos, deposito, total);
+               this.objGCRUD.guardarVentas(objGVentas.getNumVenta(),txtExcursion.getText(),Integer.parseInt(txtBoletos.getText()), txtCliente.getText(),Integer.parseInt(txtDeposito.getText()), Integer.parseInt(txtTotal.getText()));
                this.objGVentas.ingresarVenta(nuevaVenta);
                 JOptionPane.showMessageDialog(null, "Se Registro Correctamente la Venta", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 limpiarCajas();
