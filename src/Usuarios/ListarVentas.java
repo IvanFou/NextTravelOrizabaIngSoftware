@@ -2,11 +2,9 @@
 package Usuarios;
 
 
-import Datos.CRUD;
-import Negocios.GestorCliente;
+import Negocios.Venta;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Negocios.GestorVenta;
 
 /**
  *
@@ -14,8 +12,7 @@ import Negocios.GestorVenta;
  */
 public class ListarVentas extends javax.swing.JInternalFrame {
 
-     private GestorVenta objGVentas;
-     CRUD objGCRUD = new CRUD();
+     private Venta objGVentas;
      
      int posicion;
      String pos = null;
@@ -26,7 +23,7 @@ public class ListarVentas extends javax.swing.JInternalFrame {
     
     
     
-    public ListarVentas(GestorVenta objGVenta) {
+    public ListarVentas(Venta objGVenta) {
         this.Tablas = new DefaultTableModel();
         
         this.cont = 0;
@@ -169,6 +166,7 @@ public class ListarVentas extends javax.swing.JInternalFrame {
                borrarDatosTabla();
                llenarDatosTabla(noElemento);
                btnCancelarConsulta.setEnabled(true);
+               busqueda(txtClaveBusqueda.getText());
                btnBuscar.setEnabled(false);
             
             }else{    
@@ -197,7 +195,7 @@ public class ListarVentas extends javax.swing.JInternalFrame {
         int fila = tabMaestro.getSelectedRow();
         if(fila>=0)
         {
-            objGCRUD.eliminarVentas(fila);
+            objGVentas.eliminarVentas(fila);
             objGVentas.borrardato(fila);
             borrarDatosTabla(); 
             llenarDatosTablas();
@@ -214,8 +212,7 @@ public int busqueda(String claveBusqueda) throws ExceptionInInitializerError{
          while(ind<objGVentas.getVenta().length){
            
              if(claveBusqueda.equals(objGVentas.getVenta()[ind].getId())){
-                 System.out.println("El usuario con el id buscado es: "+objGVentas
-                         .getVenta()[ind].getCliente()+ " \n");
+                 System.out.println("El usuario con el id buscado es: "+objGVentas.getVenta()[ind].getCliente()+ " \n");
                  noElemento=ind;
                  ind=objGVentas.getVenta().length;
              } else {   

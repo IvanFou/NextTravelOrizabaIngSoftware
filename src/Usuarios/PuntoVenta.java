@@ -5,11 +5,8 @@
  */
 package Usuarios;
 
-import Datos.CRUD;
-import Negocios.GestorCliente;
-import Negocios.GestorVenta;
-import Datos.Cliente;
-import Datos.Venta;
+import Negocios.Cliente;
+import Negocios.Venta;
 import javax.swing.JOptionPane;
 /**
  *
@@ -21,12 +18,10 @@ public class PuntoVenta extends javax.swing.JInternalFrame {
     /**
      * Creates new form AgregarClientes
      */
-     private GestorCliente objGExcursion;
-     private GestorVenta objGVentas;
-     CRUD objGCRUD = new CRUD();
-
+     private Cliente objGExcursion;
+     private Venta objGVentas;
      
-    public PuntoVenta(GestorVenta objGVentas) {
+    public PuntoVenta(Venta objGVentas) {
         initComponents();
             this.objGVentas = objGVentas;
             this.objGExcursion = objGExcursion;
@@ -181,7 +176,7 @@ public class PuntoVenta extends javax.swing.JInternalFrame {
             else
             {
                Venta nuevaVenta = new Venta(id,excursion, cliente, boletos, deposito, total);
-               this.objGCRUD.guardarVentas(objGVentas.getNumVenta(),txtExcursion.getText(),Integer.parseInt(txtBoletos.getText()), txtCliente.getText(),Integer.parseInt(txtDeposito.getText()), Integer.parseInt(txtTotal.getText()));
+               this.objGVentas.guardarVentas(objGVentas.getNumVenta(),txtExcursion.getText(),Integer.parseInt(txtBoletos.getText()), txtCliente.getText(),Integer.parseInt(txtDeposito.getText()), Integer.parseInt(txtTotal.getText()));
                this.objGVentas.ingresarVenta(nuevaVenta);
                 JOptionPane.showMessageDialog(null, "Se Registro Correctamente la Venta", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 limpiarCajas();

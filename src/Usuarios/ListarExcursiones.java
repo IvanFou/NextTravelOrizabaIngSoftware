@@ -5,9 +5,8 @@
  */
 package Usuarios;
 
-import Datos.CRUD;
-import Negocios.GestorCliente;
-import Negocios.GestorExcursion;
+import Negocios.Cliente;
+import Negocios.Excursion;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,8 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListarExcursiones extends javax.swing.JInternalFrame {
 
-     private GestorExcursion objGExcursion;
-     CRUD objGCRUD = new CRUD();
+     private Excursion objGExcursion;
      
      int posicion;
      String pos = null;
@@ -33,7 +31,7 @@ public class ListarExcursiones extends javax.swing.JInternalFrame {
      * Creates new form ListarEstudiantes
      * @param objGEstudiantess
      */
-    public ListarExcursiones(GestorExcursion objGExcursions ) {
+    public ListarExcursiones(Excursion objGExcursions ) {
         this.miTabla = new DefaultTableModel();
         
         this.cont = 0;
@@ -50,7 +48,7 @@ public class ListarExcursiones extends javax.swing.JInternalFrame {
         llenarDatosTabla();
     }
 
-    ListarExcursiones(GestorCliente objGExcursion) {
+    ListarExcursiones(Cliente objGExcursion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -206,7 +204,7 @@ public class ListarExcursiones extends javax.swing.JInternalFrame {
         int fila = tabEstudiantes.getSelectedRow();
         if(fila>=0)
         {
-            objGCRUD.eliminarExcursiones(fila);
+            objGExcursion.eliminarExcursiones(fila);
             objGExcursion.borrardato(fila);
             borrarDatosTabla();
             llenarDatosTabla();

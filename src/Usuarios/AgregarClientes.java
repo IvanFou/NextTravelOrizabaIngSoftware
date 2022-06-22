@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package Usuarios;
-
-import Negocios.GestorCliente;
-import Datos.Cliente;
+import Negocios.Cliente;
 import javax.swing.JOptionPane;
-import Datos.CRUD;
+
 /**
  *
  * @author Ivan Fougerat
@@ -19,10 +17,9 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
     /**
      * Creates new form AgregarClientes
      */
-     private GestorCliente objGCliente;
-     CRUD objGCRUD = new CRUD();
+     private Cliente objGCliente;
      
-    public AgregarClientes(GestorCliente objGCliente) {
+    public AgregarClientes(Cliente objGCliente) {
         initComponents();
             this.objGCliente = objGCliente;
     }
@@ -177,7 +174,7 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
             else
             {
                  Cliente nuevoCliente = new Cliente(id, nombre, apellido,correo, telefono);
-                        this.objGCRUD.guardarCliente(id, nombre, apellido, correo, telefono);
+                        this.objGCliente.guardarCliente(id, nombre, apellido, correo, telefono);
                         this.objGCliente.ingresarCliente(nuevoCliente);                        
                         limpiarCajas();  
                       this.objGCliente.guardarArchivo();

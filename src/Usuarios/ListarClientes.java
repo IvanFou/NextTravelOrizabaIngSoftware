@@ -1,8 +1,7 @@
 
 package Usuarios;
 
-import Datos.CRUD;
-import Negocios.GestorCliente;
+import Negocios.Cliente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,9 +11,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public final class ListarClientes extends javax.swing.JInternalFrame {
 
-     private GestorCliente objGClientes;
-     CRUD objGCRUD = new CRUD();
-
+     private Cliente objGClientes;
+     
      int posicion;
      String pos = null;
      int ind;
@@ -24,7 +22,7 @@ public final class ListarClientes extends javax.swing.JInternalFrame {
     
     
     
-    public ListarClientes(GestorCliente objGCliente ) {
+    public ListarClientes(Cliente objGCliente ) {
         this.Tabla = new DefaultTableModel();
         
         this.cont = 0;
@@ -195,7 +193,7 @@ public final class ListarClientes extends javax.swing.JInternalFrame {
         int fila = tabMaestro.getSelectedRow();
         if(fila>=0)
         {
-            objGCRUD.eliminarCliente(fila);
+            objGClientes.eliminarCliente(fila);
             objGClientes.borrardato(fila);
             borrarDatosTabla(); 
             llenarDatosTabla();

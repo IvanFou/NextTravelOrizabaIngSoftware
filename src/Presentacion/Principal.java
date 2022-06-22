@@ -5,26 +5,25 @@
  */
 package Presentacion;
 
+import Negocios.Cliente;
 import Usuarios.AgregarClientes;
 import Usuarios.ListarExcursiones;
 import Usuarios.ListarClientes;
-import Negocios.GestorExcursion;
-import Negocios.GestorCliente;
 import Usuarios.AgregarExcursion;
 import Usuarios.PuntoVenta;
-import Negocios.GestorVenta;
 import Usuarios.ListarVentas;
-
 import Datos.Conexion;
+import Negocios.Excursion;
+import Negocios.Venta;
 
 /**
  *
  * @author Ivan Fougerat
  */
 public class Principal extends javax.swing.JFrame {
-    private GestorExcursion objGExcursion;
-     private GestorCliente objGCliente;
-     private GestorVenta objGVentas;
+    private Excursion objGExcursion;
+     private Cliente objGCliente;
+     private Venta objGVentas;
      Conexion conn = new Conexion();
 
      
@@ -33,11 +32,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        objGCliente = new GestorCliente();
+        objGCliente = new Cliente();
         objGCliente.leerArchivo();
-        objGExcursion = new GestorExcursion();
+        objGExcursion = new Excursion();
         objGExcursion.ReadFile();
-        objGVentas = new GestorVenta();
+        objGVentas = new Venta();
         objGVentas.ReadFiles();
         conn.conectar();
     }
