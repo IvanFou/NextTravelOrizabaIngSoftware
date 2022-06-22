@@ -19,6 +19,7 @@ public class Acceso extends javax.swing.JFrame {
      */
     public Acceso() {
         initComponents();
+        txtPassword.setText("");
     }
 
     /**
